@@ -38,7 +38,7 @@ Configuration
 API Key: Obtain an API key from the OpenWeatherAPI and add it to your Django settings.
 
 Python
-# settings.py
+# .env
 OPENWEATHER_API_KEY = 'your_api_key_here'
 URLs: Define URLs in your urls.py to manage different endpoints.
 
@@ -53,19 +53,7 @@ urlpatterns = [
 Views: Implement views in your views.py to handle requests.
 
 Python
-from django.shortcuts import render
-import requests
 
-def index(request):
-    return render(request, 'index.html')
-
-def get_weather(request):
-    city = request.GET.get('city')
-    api_key = 'your_api_key_here'
-    url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
-    response = requests.get(url)
-    weather_data = response.json()
-    return render(request, 'weather.html', {'weather_data': weather_data})
 Usage
 Start the server:
 
@@ -88,14 +76,5 @@ Front-End Frameworks: Integrate front-end frameworks like React or Vue.js with y
 Testing: Implement unit tests for your views and models using Django's testing framework.
 Deployment: Explore deployment options for your Django application, such as Heroku or AWS.
 Contributing
-If you want to contribute to this project, please follow these steps:
 
-Fork the repository.
-Create a new branch (git checkout -b feature-branch).
-Make your changes.
-Commit your changes (git commit -m 'Add new feature').
-Push to the branch (git push origin feature-branch).
-Create a pull request.
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
